@@ -1,0 +1,46 @@
+{
+  "name": "altf1be_helpers",
+  "description": "Helpers to deal with basic requirements of an application built by www.alt-f1.be",
+  "homepage": "https://github.com/ALT-F1/altf1be_helpers",
+  "author": {
+    "name": "Abdelkrim Boujraf",
+    "email": "abo+altf1be_helpers_pkg@alt-f1.be",
+    "url": "https://github.com/abdelkrim"
+  },
+  "keywords": [
+    "library",
+    "altf1be_helpers",
+    "alt-f1.be",
+    "helpers-library",
+    "python3",
+    "pypi-package"
+  ],
+  "version": "0.0.0",
+  "main": "${workspaceFolder}/altf1be_helpers/altf1be_helpers.py",
+  "scripts": {
+    "release": "standard-version",
+    "patch": "npm run release -- --release-as patch",
+    "minor": "npm run release -- --release-as minor",
+    "major": "npm run release -- --release-as major",
+    "push": "git push --follow-tags origin master",
+    "build-push-prod:setup.py": "run-s clean:setup.py build:setup.py push-prod:setup.py",
+    "build-push-test:setup.py": "run-s clean:setup.py build:setup.py push-test:setup.py",
+    "build:setup.py": "python setup.py sdist bdist_wheel",
+    "clean-build": "run-s clean:setup.py build:setup.py",
+    "clean:setup.py": "del-cli build altf1be_helpers-* **/altf1be_helpers.egg* dist",
+    "push-prod:setup.py": "python -m twine upload dist/*",
+    "push-test:setup.py": "python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ALT-F1/altf1be_helpers.git"
+  },
+  "license": "LICENSE",
+  "dependencies": {
+    "standard-version": "^8.0.0"
+  },
+  "devDependencies": {
+    "del-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
