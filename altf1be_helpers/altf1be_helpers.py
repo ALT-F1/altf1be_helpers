@@ -187,7 +187,7 @@ class AltF1BeHelpers:
                 input_directory, os.path.sep.join(directories))
         else:
             input_directory = os.path.join(os.path.abspath(
-                os.getcwd()), "output_directory", "data", os.path.sep.join(directories))
+                os.getcwd()), os.path.sep.join(directories)) # TODO: revise all codes. former code was this "output_directory", "data",
 
         return input_directory
 
