@@ -33,9 +33,6 @@ MISSING_LIBRARY = -1
 
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-# import libraries
-
-
 class AltF1BeHelpers:
 
     @staticmethod
@@ -51,7 +48,7 @@ class AltF1BeHelpers:
         requirements = parse_requirements(os.path.join(
             os.path.dirname(__file__), 'requirements.txt')
         )
-        print(f"requirements.txt: {requirements}")
+        logging.info(f"requirements.txt: {requirements}")
 
     @staticmethod
     def requests_retry_session(
@@ -210,6 +207,24 @@ class AltF1BeHelpers:
         return output_directory
 
     @staticmethod
+    def create_append_log_file(filename):
+        """ create or append a log file stored in current_dir/logs/{filename}
+
+        """
+
+        filepath_log = os.path.join(
+            AltF1BeHelpers.output_directory(
+                ['logs']
+            ),
+            filename
+        )
+        msg = f"The log file is stored here: {filepath_log}"
+        print(msg)
+        logging.info(msg)
+        
+        return filepath_log
+
+    @staticmethod
     def daterange(start_date, end_date):
         for n in range(int((end_date - start_date).days)):
             yield start_date + timedelta(n)
@@ -240,3 +255,12 @@ if __name__ == "__main__":
     print(
         f'parse_requirements : {AltF1BeHelpers.parse_requirements("requirements.txt")}'
     )
+
+log_filename = AltF1BeHelpers.create_append_log_file("altf1be_helpers.py.log")
+
+logging.basicConfig(
+    filename=log_filename,
+    level=logging.INFO
+)
+
+logging.info("AltF1BeHelpers log is created!")
