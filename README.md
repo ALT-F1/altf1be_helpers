@@ -2,12 +2,7 @@
 
 Helpers to deal with basic requirements of an application built by www.alt-f1.be. See <https://bitbucket.org/altf1be/altf1be_helpers>
 
-The class ALTF1
-
-
-* Get the list of countries stored in the field "place" in transactions stored in twikey.
-* The places are written either in FR, EN or NL.
-* The method returns a List of places in English and a Set of those places if the places are using the above-mentioned languages
+* management of a JSON File: Load, save, save with datetime. 
 
 ## usage
 
@@ -39,19 +34,37 @@ The class ALTF1
     * Source : [https://pypi.org/project/altf1be_helpers](https://pypi.org/project/altf1be_helpers)
 
 
-## test the library
+## test the library altf1be_helpers
 
 * `cd altf1be_helpers`
 * `python altf1be_helpers_unittest.py`
+* `python altf1be_json_helpers_unittest.py`
 
 * locate the package 
     * `python -c "from altf1be_helpers import AltF1BeHelpers as _; print(_.__path__)"` **does not work yet**
+
 * list functions inside the module
     *  the package `python -c "import altf1be_helpers as _; print(dir(_))"`
 
 * test the package 
     * `python -c "from altf1be_helpers import AltF1BeHelpers; text='éê à iïî'; print(f'{AltF1BeHelpers.unicode_to_ascii(text)}')"`
     * result : `ee a iii`
+
+## test the library altf1be_helpers
+
+* `cd altf1be_helpers`
+
+* `python altf1be_json_helpers_unittest.py`
+
+* locate the package 
+    * `python -c "from altf1be_json_helpers import AltF1BeJSONHelpers as _; print(_.__path__)"` **does not work yet**
+
+* list functions inside the module
+    *  the package `python -c "import altf1be_helpers as _; print(dir(_))"`
+
+* test the package 
+    * `python -c 'import os;from altf1be_helpers import AltF1BeJSONHelpers; altF1BeJSONHelpers = AltF1BeJSONHelpers();data = altF1BeJSONHelpers.load(os.path.join("data", "altf1be_sample.json"));print(data)'`
+    * result : `{"name": "altf1be_json_helpers"}`
 
 ## Documentation
 
