@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ALT-F1/altf1be_helpers/compare/v1.0.3...v2.0.0) (2020-06-24)
+
+
+### Features
+
+* implement the AltF1BeJSONHelpers v1.0.3 available here: https://github.com/ALT-F1/altf1be_json_helpers.git ([88aaa4e](https://github.com/ALT-F1/altf1be_helpers/commit/88aaa4eb9169dd5c4da540ba9121680646b0f573))
+
 ### [1.0.3](https://github.com/ALT-F1/altf1be_helpers/compare/v1.0.2...v1.0.3) (2020-06-24)
 
 ### [1.0.2](https://github.com/ALT-F1/altf1be_helpers/compare/v1.0.1...v1.0.2) (2020-06-24)
