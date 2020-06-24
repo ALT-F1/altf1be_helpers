@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/ALT-F1/altf1be_helpers/compare/v1.0.1...v1.0.2) (2020-06-24)
+
+
+### Features
+
+* create a directory and set the filename of a log file ([7a60fa5](https://github.com/ALT-F1/altf1be_helpers/commit/7a60fa5e82e0a13534ae0b9acc54ed920810e83d))
+
 ### [1.0.1](https://github.com/ALT-F1/altf1be_helpers/compare/v1.0.0...v1.0.1) (2020-06-20)
 
 
