@@ -256,11 +256,9 @@ if __name__ == "__main__":
         f'parse_requirements : {AltF1BeHelpers.parse_requirements("requirements.txt")}'
     )
 
-log_filename = AltF1BeHelpers.create_append_log_file("altf1be_helpers.py.log")
+log_filename = AltF1BeHelpers.create_append_log_file(f"{os.path.basename(__file__)}.log")
 
 logging.basicConfig(
     filename=log_filename,
     level=logging.INFO
 )
-
-logging.info("AltF1BeHelpers log is created!")
