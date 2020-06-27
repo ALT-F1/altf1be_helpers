@@ -33,6 +33,7 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 MISSING_LIBRARY = -1
 
 logging.getLogger("urllib3").setLevel(logging.WARNING)
+home_directory = str(Path.home())
 
 
 class AltF1BeHelpers:
@@ -185,8 +186,16 @@ class AltF1BeHelpers:
             input_directory = os.path.join(
                 input_directory, os.path.sep.join(directories))
         else:
-            input_directory = os.path.join(os.path.abspath(
-                os.getcwd()), os.path.sep.join(directories))  # TODO: revise all codes. former code was this "output_directory", "data",
+            input_directory = os.path.join(
+                # os.path.abspath(
+                # os.getcwd()
+                # ),
+                home_directory,
+                ".fmtech",
+                "cache",
+                # TODO: revise all codes. former code was this "output_directory", "data",
+                os.path.sep.join(directories)
+            )
 
         return input_directory
 
@@ -198,8 +207,15 @@ class AltF1BeHelpers:
                 output_directory, os.path.sep.join(directories)
             )
         else:
-            output_directory = os.path.join(os.path.abspath(
-                os.getcwd()), "output_directory", "data", os.path.sep.join(directories)
+            output_directory = os.path.join(
+                # os.path.abspath(
+                #     os.getcwd()
+                # ),
+                #  "output_directory",
+                home_directory,
+                ".fmtech",
+                "cache",
+                os.path.sep.join(directories)
             )
 
         Path(output_directory).mkdir(
@@ -270,7 +286,8 @@ class AltF1BeJSONHelpers:
     @filename.setter
     def filename(self, filename):
         self.__filename = os.path.join(
-            # AltF1BeHelpers.output_directory(), # TODO remove this line to generalize the management of the files
+            AltF1BeHelpers.output_directory(), # TODO remove this line to generalize the management of the files
+
             filename
         )
 
@@ -289,6 +306,7 @@ class AltF1BeJSONHelpers:
                 #     ['api']
                 # ),
                 filename_path,
+                datetime.now().strftime(f'%Y-%m-%d'),
                 filename
             )
         )
@@ -330,8 +348,8 @@ if __name__ == "__main__":
     altF1BeJSONHelpers.save(
         data_str,
         os.path.join(
-            os.path.dirname(__file__),
-            "data",
+            # os.path.dirname(__file__),
+            "test",
             "altf1be_sample_output.json"
         )
     )
@@ -339,8 +357,9 @@ if __name__ == "__main__":
     altF1BeJSONHelpers.save_with_datetime(
         data_str,
         os.path.join(
-            os.path.dirname(__file__),
-            "data",
+            # os.path.dirname(__file__),
+
+            "test",
             "altf1be_sample_with_date_time_output.json"
         )
     )
