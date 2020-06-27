@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ALT-F1/altf1be_helpers/compare/v2.0.0...v2.1.0) (2020-06-27)
+
+
+### Features
+
+* files are stored in '~/.fmtech/cache' directory ([8784077](https://github.com/ALT-F1/altf1be_helpers/commit/8784077f2e90e085d8991b21f05a7a060af6f7e2))
+
 ## [2.0.0](https://github.com/ALT-F1/altf1be_helpers/compare/v1.0.3...v2.0.0) (2020-06-24)
 
 
