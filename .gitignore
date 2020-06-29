@@ -5,6 +5,7 @@
 output_directory/
 altf1be_helpers/data/*-altf1be_sample_with_date_time_output.json
 altf1be_helpers/data/altf1be_sample_output.json
+test/
 
 ### Node ###
 # Logs
