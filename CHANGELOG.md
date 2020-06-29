@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.0...v2.1.1) (2020-06-29)
+
+
+### Features
+
+* get_filename generates a filename including a datetime or not, add save_with_time function that saves a file with a datetime, load_latest_with_datetime searches for the latest version of a a file ([c6ce539](https://github.com/ALT-F1/altf1be_helpers/commit/c6ce539f49ac895bb5a7764dc96994f6b75be304))
+
 ## [2.1.0](https://github.com/ALT-F1/altf1be_helpers/compare/v2.0.0...v2.1.0) (2020-06-27)
 
 
