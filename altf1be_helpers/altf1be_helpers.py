@@ -286,7 +286,8 @@ class AltF1BeJSONHelpers:
     @filename.setter
     def filename(self, filename):
         self.__filename = os.path.join(
-            AltF1BeHelpers.output_directory(), # TODO remove this line to generalize the management of the files
+            # TODO remove this line to generalize the management of the files
+            AltF1BeHelpers.output_directory(),
 
             filename
         )
@@ -294,22 +295,73 @@ class AltF1BeJSONHelpers:
     def __init__(self):
         pass
 
-    def save_with_datetime(self, data, filename):
+    def get_filename(self, filename, include_datetime_now=False):
+        result = ""
+
         filename_path = os.path.dirname(filename)
-        filename = datetime.now().strftime(
+        filename_prefixed_with_datetime = datetime.now().strftime(
             f'%Y-%m-%d_%H-%M-%S-{os.path.basename(filename)}'
         )
-        self.save(
-            data=data,
-            filename=os.path.join(
-                # AltF1BeHelpers.output_directory(
-                #     ['api']
-                # ),
+        if include_datetime_now == True:
+            result = os.path.join(
                 filename_path,
                 datetime.now().strftime(f'%Y-%m-%d'),
-                filename
+                filename_prefixed_with_datetime
+            )
+        elif include_datetime_now == False:
+            result = os.path.join(
+                filename_path,
+                filename_prefixed_with_datetime
+            )
+        return result
+
+    def save_with_datetime(self, data, filename):
+        self.save(
+            data=data,
+            filename=AltF1BeJSONHelpers().get_filename(
+                filename,
+                include_datetime_now=True
             )
         )
+
+    def load_latest_with_datetime(self, filename):
+        """ load latest file stored based on a filename
+
+            Returns
+            -------
+
+            the filename including the path of the latest file
+
+            e.g. /home/username/.fmtech/cache/data/api/bgrid/2020-06-29/2020-06-29_18-33-15-bgrid-locations-id_188-co2.json
+        """
+        latest_file = None
+        filename_path = os.path.dirname(filename)
+        basename = os.path.basename(filename)
+
+        pathname = os.path.join(
+            AltF1BeHelpers.input_directory(),
+            filename_path,
+            datetime.now().strftime(f'%Y-%m-%d'),
+            f"*{basename}"
+        )
+
+        # filepath = self.get_filename(
+        #     filename=filename, include_datetime_now=True, for_search=True)
+
+        # id = "188"
+        # filename = os.path.join(
+        #     filepath,
+        #     f"*bgrid-locations-id_{id}-co2.json"
+        # )
+
+        # * means all if need specific format then *.csv
+        list_of_files = glob.glob(pathname)
+        if len(list_of_files) > 0:
+            latest_file = max(list_of_files, key=os.path.getctime)
+            print(latest_file)
+
+
+        return latest_file
 
     def save(self, data, filename=None):
         """
@@ -334,7 +386,14 @@ class AltF1BeJSONHelpers:
 
 
 if __name__ == "__main__":
+
     altF1BeJSONHelpers = AltF1BeJSONHelpers()
+
+    latest_file = altF1BeJSONHelpers.load_latest_with_datetime(
+        filename='data/api/bgrid/bgrid-locations-id_all-co2.json'
+    )
+    print(f"latest_file: {latest_file}")
+
     data = altF1BeJSONHelpers.load(
         os.path.join(
             os.path.dirname(__file__),
