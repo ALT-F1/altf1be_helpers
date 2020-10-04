@@ -35,9 +35,9 @@
     "type": "git",
     "url": "https://github.com/ALT-F1/altf1be_helpers.git"
   },
-  "license": "LICENSE",
+  "license": "EUPL-1.2",
   "dependencies": {
-    "standard-version": "^8.0.0"
+    "standard-version": "^8.0.2"
   },
   "devDependencies": {
     "del-cli": "^3.0.0",
