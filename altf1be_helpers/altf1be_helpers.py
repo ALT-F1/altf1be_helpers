@@ -247,9 +247,27 @@ class AltF1BeHelpers:
         for n in range(int((end_date - start_date).days)):
             yield start_date + timedelta(n)
 
+    @staticmethod
+    def test_environ(environment_variables):
+        for environment_variable in environment_variables:
+            try:
+                os.environ[environment_variable]
+            except:
+                logging.error(
+                    f"Add this missing Environment variable: {environment_variable}"
+                )
+
 
 if __name__ == "__main__":
 
+    AltF1BeHelpers.test_environ([
+        "robots_work_form_password",
+        "robots_work_spreadsheet",
+        "microsoft_azure_storage_account",
+        "microsoft_azure_storage_suffix_url",
+        "microsoft_azure_storage_container_name",
+        "microsoft_azure_storage_connection_string",
+    ])
     text = "éè à iïî où &é'(§è!çàaQwxs $ µ `"
     print(
         f"unicode_to_ascii(text): '{text}' becomes '{AltF1BeHelpers.unicode_to_ascii(text)}'"
@@ -359,7 +377,6 @@ class AltF1BeJSONHelpers:
         if len(list_of_files) > 0:
             latest_file = max(list_of_files, key=os.path.getctime)
             print(latest_file)
-
 
         return latest_file
 
