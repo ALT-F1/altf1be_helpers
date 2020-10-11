@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.3...v2.1.4) (2020-10-11)
+
+
+### Features
+
+* test the environment variables sent as a python list. e.g. test_environ(['one_environment_variable']) ([9b7ff7b](https://github.com/ALT-F1/altf1be_helpers/commit/9b7ff7bd5b2ba6c9b067681f9f8520d4ccf09b56))
+
 ### [2.1.3](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.2...v2.1.3) (2020-10-04)
 
 ### [2.1.2](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.1...v2.1.2) (2020-06-29)

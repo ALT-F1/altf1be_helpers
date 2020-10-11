@@ -15,7 +15,7 @@
     "python3",
     "pypi-package"
   ],
-  "version": "2.1.3",
+  "version": "2.1.4",
   "main": "${workspaceFolder}/altf1be_helpers/altf1be_helpers.py",
   "scripts": {
     "release": "standard-version",
