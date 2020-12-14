@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/abdelkrim/miniconda3/envs/altf1be_helpers/bin/python"
+    "python.pythonPath": "/home/abdelkrim/miniconda3/envs/altf1be_helpers/bin/python",
+    "restructuredtext.confPath": ""
 }
