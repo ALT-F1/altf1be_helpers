@@ -39,6 +39,25 @@ home_directory = str(Path.home())
 class AltF1BeHelpers:
 
     @staticmethod
+    def get_logger(log_level=logging.INFO, log_format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', log_filename=None):
+        logger = logging.getLogger(__name__)
+        logger.setLevel(log_level)
+        fh = logging.FileHandler(log_filename)
+        fh.setLevel(log_level)
+        # create console handler with a higher log level
+        ch = logging.StreamHandler()
+        ch.setLevel(log_level)
+        # create formatter and add it to the handlers
+        formatter = logging.Formatter(
+            log_format)
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+        # add the handlers to the logger
+        logger.addHandler(fh)
+        logger.addHandler(ch)
+        return logger
+
+    @staticmethod
     def parse_requirements(filename):
         """ Load requirements from a pip requirements file 
 
