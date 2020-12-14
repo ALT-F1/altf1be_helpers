@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.5...v2.2.0) (2020-12-14)
+
+
+### Features
+
+* add a get_logger to setup a logging that create a file log, set the log level and set the log format ([5e35480](https://github.com/ALT-F1/altf1be_helpers/commit/5e35480f4861adf933a3fd2dbb4d1e036a568f27))
+
 ### [2.1.5](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.4...v2.1.5) (2020-12-11)
 
 ### [2.1.4](https://github.com/ALT-F1/altf1be_helpers/compare/v2.1.3...v2.1.4) (2020-10-11)
